@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phiếu Học Tập Tương Tác: Sulfuric Acid (H2SO4) - Hóa Học 11</title>
+<style>
+  :root {
+    --primary: #1e3a8a;
+    --primary-light: #3b82f6;
+    --teal: #0f766e;
+    --teal-bg: #f0fdfa;
+    --amber: #b45309;
+    --amber-bg: #fffbeb;
+    --slate: #1e293b;
+    --muted: #64748b;
+    --border: #cbd5e1;
+    --bg: #f8fafc;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--slate);
+    margin: 0;
+    padding: 0;
+    line-height: 1.55;
+  }
+  .container {
+    max-width: 1050px;
+    margin: 24px auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+  }
+  header {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+    color: #fff;
+    padding: 24px 32px;
+    text-align: center;
+  }
+  header .badge {
+    display: inline-block;
+    background: rgba(147, 197, 253, 0.2);
+    color: #93c5fd;
+    font-size: 0.82rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 999px;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+  }
+  header h1 {
+    margin: 0;
+    font-size: 1.72rem;
+    letter-spacing: 0.3px;
+  }
+  .student-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    background: #f1f5f9;
+    padding: 14px 32px;
+    border-bottom: 1px solid var(--border);
+    align-items: center;
+    justify-content: space-between;
+  }
+  .student-bar input {
+    border: 1px solid #94a3b8;
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 0.95rem;
+    background: #fff;
+  }
+  .tabs {
+    display: flex;
+    background: #e2e8f0;
+    padding: 6px 32px 0;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .tab-btn {
+    padding: 10px 20px;
+    border: none;
+    background: transparent;
+    font-weight: 700;
+    font-size: 0.96rem;
+    color: #475569;
+    cursor: pointer;
+    border-radius: 10px 10px 0 0;
+    transition: all 0.2s;
+  }
+  .tab-btn.active {
+    background: #fff;
+    color: var(--primary);
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.05);
+  }
+  .tab-content {
+    display: none;
+    padding: 28px 32px;
+  }
+  .tab-content.active { display: block; }
+  h2.sec-title {
+    background: var(--primary);
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 1.12rem;
+    margin-top: 0;
+  }
+  h2.sec-title.teal { background: var(--teal); }
+  h2.sec-title.rust { background: #7c2d12; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.94rem;
+  }
+  th, td {
+    border: 1px solid var(--border);
+    padding: 10px 12px;
+    vertical-align: middle;
+  }
+  th {
+    background: #dbeafe;
+    color: var(--primary);
+    font-weight: 700;
+    text-align: center;
+  }
+  th.teal-th {
+    background: #ccfbf1;
+    color: #115e59;
+  }
+  .grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 16px;
+    margin: 16px 0;
+  }
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 14px;
+    margin: 14px 0;
+  }
+  .card {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px;
+    background: #f8fafc;
+    text-align: center;
+  }
+  .card h4 {
+    margin: 0 0 6px;
+    color: var(--primary);
+    font-size: 1rem;
+  }
+  .stage-card {
+    border-radius: 12px;
+    padding: 14px 16px;
+    border: 1.5px solid #93c5fd;
+    background: #eff6ff;
+  }
+  .stage-card.s2 { border-color: #5eead4; background: #f0fdfa; }
+  .stage-card.s3 { border-color: #fcd34d; background: #fffbeb; }
+  .exercise-card {
+    border: 1px solid #cbd5e1;
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin-bottom: 20px;
+    background: #fff;
+  }
+  .exercise-card h3 {
+    margin-top: 0;
+    color: var(--teal);
+    font-size: 1.06rem;
+  }
+  select, input[type="text"], input[type="number"] {
+    padding: 6px 8px;
+    border: 1px solid #94a3b8;
+    border-radius: 6px;
+    font-size: 0.92rem;
+    width: 100%;
+  }
+  .mcq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(440px, 1fr));
+    gap: 14px;
+  }
+  .mcq-item {
+    padding: 12px 14px;
+    background: #f8fafc;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+  }
+  .mcq-options label {
+    display: block;
+    margin: 6px 0;
+    cursor: pointer;
+    padding: 3px 6px;
+    border-radius: 5px;
+    transition: background 0.15s;
+  }
+  .mcq-options label:hover { background: #e2e8f0; }
+  .btn-bar {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 24px;
+    flex-wrap: wrap;
+  }
+  .btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.15s, opacity 0.15s;
+  }
+  .btn:hover { opacity: 0.92; transform: translateY(-1px); }
+  .btn-submit { background: var(--teal); color: #fff; }
+  .btn-reset { background: #64748b; color: #fff; }
+  .btn-print { background: var(--primary); color: #fff; }
+  .result-box {
+    display: none;
+    margin-top: 20px;
+    padding: 18px 22px;
+    border-radius: 12px;
+    background: #ecfdf5;
+    border: 2px solid #10b981;
+  }
+  .correct-ans { color: #059669; font-weight: 700; font-size: 0.88rem; display: block; margin-top: 5px; }
+  .wrong-ans { color: #dc2626; font-weight: 700; font-size: 0.88rem; display: block; margin-top: 5px; }
+  @media print {
+    .tabs, .btn-bar { display: none !important; }
+    .tab-content { display: block !important; padding: 10px 0; }
+    .container { box-shadow: none; border: none; margin: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="badge">CHƯƠNG 2: NITROGEN – SULFUR • HÓA HỌC 11 (GDPT 2018)</div>
+    <h1>PHIẾU HỌC TẬP CHUYÊN SÂU: SULFURIC ACID (H<sub>2</sub>SO<sub>4</sub>) &amp; MUỐI SULFATE</h1>
+  </header>
+
+  <div class="student-bar">
+    <div><strong>Họ và tên:</strong> <input type="text" placeholder="Nhập họ và tên..." style="width:220px;"></div>
+    <div><strong>Lớp:</strong> <input type="text" placeholder="11A..." style="width:90px;"></div>
+    <div><strong>Ngày làm bài:</strong> <input type="text" value="12/11/2026" style="width:110px;"></div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="openTab('tab-theory', this)">📚 Phần A: Hệ Thống Kiến Thức &amp; Sơ Đồ Trực Quan</button>
+    <button class="tab-btn" onclick="openTab('tab-practice', this)">✍️ Phần B &amp; C: Luyện Tập &amp; 20 Câu Trắc Nghiệm</button>
+  </div>
+
+  <!-- TAB 1: THEORY & VISUALS -->
+  <div id="tab-theory" class="tab-content active">
+    <h2 class="sec-title">PHẦN A. HỆ THỐNG KIẾN THỨC TRỌNG TÂM CẦN NẮM VỮNG</h2>
+    <p><strong>1. Tính chất vật lí &amp; Quy tắc an toàn:</strong> H<sub>2</sub>SO<sub>4</sub> là chất lỏng sánh như dầu, không màu, không bay hơi, hút ẩm mạnh, tan vô hạn trong nước và tỏa rất nhiều nhiệt. <strong>Khi pha loãng H<sub>2</sub>SO<sub>4</sub> đặc:</strong> phải rót từ từ acid vào nước và khuấy đều (<em>tuyệt đối không rót nước vào acid đặc</em>).</p>
+
+    <div class="grid-2">
+      <!-- Structure SVG -->
+      <div class="card">
+        <h4>Cấu tạo phân tử Sulfuric acid (H<sub>2</sub>SO<sub>4</sub>)</h4>
+        <svg viewBox="0 0 320 155" width="100%">
+          <text x="160" y="82" font-size="22" font-weight="bold" text-anchor="middle" fill="#d97706">S</text>
+          <text x="160" y="28" font-size="19" font-weight="bold" text-anchor="middle" fill="#dc2626">O</text>
+          <line x1="156" y1="36" x2="156" y2="62" stroke="#0f172a" stroke-width="2.2"/>
+          <line x1="164" y1="36" x2="164" y2="62" stroke="#0f172a" stroke-width="2.2"/>
+          <circle cx="144" cy="18" r="2.5" fill="#0f172a"/><circle cx="144" cy="26" r="2.5" fill="#0f172a"/>
+          <circle cx="176" cy="18" r="2.5" fill="#0f172a"/><circle cx="176" cy="26" r="2.5" fill="#0f172a"/>
+          <text x="160" y="136" font-size="19" font-weight="bold" text-anchor="middle" fill="#dc2626">O</text>
+          <line x1="156" y1="90" x2="156" y2="116" stroke="#0f172a" stroke-width="2.2"/>
+          <line x1="164" y1="90" x2="164" y2="116" stroke="#0f172a" stroke-width="2.2"/>
+          <circle cx="144" cy="126" r="2.5" fill="#0f172a"/><circle cx="144" cy="134" r="2.5" fill="#0f172a"/>
+          <circle cx="176" cy="126" r="2.5" fill="#0f172a"/><circle cx="176" cy="134" r="2.5" fill="#0f172a"/>
+          <text x="102" y="82" font-size="19" font-weight="bold" text-anchor="middle" fill="#dc2626">O</text>
+          <line x1="115" y1="76" x2="145" y2="76" stroke="#0f172a" stroke-width="2.2"/>
+          <circle cx="98" cy="60" r="2.5" fill="#0f172a"/><circle cx="106" cy="60" r="2.5" fill="#0f172a"/>
+          <circle cx="98" cy="91" r="2.5" fill="#0f172a"/><circle cx="106" cy="91" r="2.5" fill="#0f172a"/>
+          <text x="48" y="82" font-size="19" font-weight="bold" text-anchor="middle" fill="#1d4ed8">H</text>
+          <line x1="60" y1="76" x2="88" y2="76" stroke="#0f172a" stroke-width="2.2"/>
+          <text x="218" y="82" font-size="19" font-weight="bold" text-anchor="middle" fill="#dc2626">O</text>
+          <line x1="175" y1="76" x2="205" y2="76" stroke="#0f172a" stroke-width="2.2"/>
+          <circle cx="214" cy="60" r="2.5" fill="#0f172a"/><circle cx="222" cy="60" r="2.5" fill="#0f172a"/>
+          <circle cx="214" cy="91" r="2.5" fill="#0f172a"/><circle cx="222" cy="91" r="2.5" fill="#0f172a"/>
+          <text x="272" y="82" font-size="19" font-weight="bold" text-anchor="middle" fill="#1d4ed8">H</text>
+          <line x1="232" y1="76" x2="260" y2="76" stroke="#0f172a" stroke-width="2.2"/>
+        </svg>
+        <div style="font-size:0.84rem; color:#92400e; font-weight:700;">S có số oxi hóa +6 (cao nhất) &rarr; H<sub>2</sub>SO<sub>4</sub> đặc có tính oxi hóa mạnh</div>
+      </div>
+
+      <!-- Dilution SVG -->
+      <div class="card" style="background:#fffbeb; border-color:#fcd34d;">
+        <h4 style="color:#92400e;">Quy tắc pha loãng H<sub>2</sub>SO<sub>4</sub> đặc an toàn</h4>
+        <svg viewBox="0 0 320 155" width="100%">
+          <polyline points="35,55 35,125 115,125 115,55" fill="none" stroke="#0f172a" stroke-width="2.2"/>
+          <rect x="37" y="82" width="76" height="41" fill="#bae6fd"/>
+          <text x="75" y="108" font-size="12" font-weight="bold" text-anchor="middle" fill="#0369a1">H<tspan dy="3" font-size="9">2</tspan><tspan dy="-3">O</tspan></text>
+          <line x1="75" y1="25" x2="75" y2="74" stroke="#d97706" stroke-width="3" stroke-dasharray="4,2"/>
+          <polygon points="75,79 70,69 80,69" fill="#d97706"/>
+          <text x="115" y="34" font-size="11" font-weight="bold" fill="#b45309">H<tspan dy="3" font-size="8">2</tspan><tspan dy="-3">SO</tspan><tspan dy="3" font-size="8">4</tspan><tspan dy="-3"> đặc</tspan></text>
+          <text x="75" y="146" font-size="11" font-weight="bold" text-anchor="middle" fill="#059669">✔ ĐÚNG &amp; AN TOÀN</text>
+
+          <polyline points="200,55 200,125 280,125 280,55" fill="none" stroke="#0f172a" stroke-width="2.2"/>
+          <rect x="202" y="82" width="76" height="41" fill="#fde68a"/>
+          <text x="240" y="108" font-size="11" font-weight="bold" text-anchor="middle" fill="#92400e">H<tspan dy="3" font-size="8">2</tspan><tspan dy="-3">SO</tspan><tspan dy="3" font-size="8">4</tspan><tspan dy="-3"> đặc</tspan></text>
+          <circle cx="215" cy="48" r="3" fill="#dc2626"/><circle cx="232" cy="36" r="3.5" fill="#dc2626"/>
+          <circle cx="255" cy="40" r="3" fill="#dc2626"/><circle cx="268" cy="52" r="3.5" fill="#dc2626"/>
+          <text x="240" y="22" font-size="10.5" font-weight="bold" text-anchor="middle" fill="#dc2626">Rót H<tspan dy="2" font-size="8">2</tspan><tspan dy="-2">O vào &rarr; Sôi bắn!</tspan></text>
+          <text x="240" y="146" font-size="11" font-weight="bold" text-anchor="middle" fill="#dc2626">✘ SAI &amp; NGUY HIỂM</text>
+        </svg>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="width:20%;">Tiêu chí</th>
+          <th style="width:40%;">Dung dịch H<sub>2</sub>SO<sub>4</sub> loãng</th>
+          <th style="width:40%;">Dung dịch H<sub>2</sub>SO<sub>4</sub> đặc</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Tính chất đặc trưng</strong></td>
+          <td><strong>Tính acid mạnh</strong> (do ion H<sup>+</sup>): làm quỳ tím hóa đỏ; tác dụng với kim loại hoạt động, basic oxide, base và muối.</td>
+          <td><strong>Tính acid mạnh + Tính oxi hóa rất mạnh</strong> (do S<sup>+6</sup>) + <strong>Tính háo nước</strong>.</td>
+        </tr>
+        <tr>
+          <td><strong>Tác dụng với kim loại</strong></td>
+          <td>Chỉ tác dụng với kim loại <strong>đứng trước H</strong> tạo muối (hóa trị thấp) + H<sub>2</sub>&uarr;.<br>VD: Fe + H<sub>2</sub>SO<sub>4</sub> &rarr; FeSO<sub>4</sub> + H<sub>2</sub>&uarr;</td>
+          <td>Oxi hóa hầu hết kim loại (trừ Au, Pt) lên <strong>hóa trị cao nhất</strong>, không giải phóng H<sub>2</sub> (thường tạo SO<sub>2</sub>).<br><em>Chú ý: Al, Fe, Cr thụ động hóa trong H<sub>2</sub>SO<sub>4</sub> đặc, nguội.</em></td>
+        </tr>
+        <tr>
+          <td><strong>Tác dụng với phi kim &amp; hợp chất</strong></td>
+          <td>Không oxi hóa được phi kim. Chỉ phản ứng trao đổi với muối carbonate, sulfite...</td>
+          <td>Oxi hóa nhiều phi kim (C, S, P) và hợp chất có tính khử (FeO, Fe<sub>3</sub>O<sub>4</sub>, HBr, HI, H<sub>2</sub>S...).<br>VD: C + 2H<sub>2</sub>SO<sub>4(đặc)</sub> &rarr; CO<sub>2</sub>&uarr; + 2SO<sub>2</sub>&uarr; + 2H<sub>2</sub>O</td>
+        </tr>
+        <tr>
+          <td><strong>Tính háo nước</strong></td>
+          <td>Không có tính háo nước.</td>
+          <td>Chiếm nước của đường saccarozơ (C<sub>12</sub>H<sub>22</sub>O<sub>11</sub>), giấy, vải, da thịt gây than hóa:<br>C<sub>12</sub>H<sub>22</sub>O<sub>11</sub> &rarr; 12C + 11H<sub>2</sub>O (một phần C bị oxi hóa tiếp sinh CO<sub>2</sub>, SO<sub>2</sub>).</td>
+        </tr>
+        <tr>
+          <td><strong>Nhận biết ion SO<sub>4</sub><sup>2&minus;</sup></strong></td>
+          <td colspan="2">Dùng dung dịch chứa ion <strong>Ba<sup>2+</sup></strong> (BaCl<sub>2</sub>, Ba(OH)<sub>2</sub>, Ba(NO<sub>3</sub>)<sub>2</sub>) &rarr; tạo kết tủa trắng <strong>BaSO<sub>4</sub>&darr;</strong> không tan trong acid mạnh và kiềm:<br><strong>Ba<sup>2+</sup> + SO<sub>4</sub><sup>2&minus;</sup> &rarr; BaSO<sub>4</sub>&darr; (trắng)</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 style="color:var(--primary); margin-bottom:6px;">2. Sản xuất sulfuric acid trong công nghiệp (Phương pháp tiếp xúc – 3 giai đoạn)</h3>
+    <div class="grid-3">
+      <div class="stage-card">
+        <strong style="color:#1e3a8a;">GIAI ĐOẠN 1: Sản xuất SO<sub>2</sub></strong><br>
+        • S + O<sub>2</sub> &rarr; SO<sub>2</sub> (t&deg;)<br>
+        • 4FeS<sub>2</sub> + 11O<sub>2</sub> &rarr; 2Fe<sub>2</sub>O<sub>3</sub> + 8SO<sub>2</sub> (t&deg;)
+      </div>
+      <div class="stage-card s2">
+        <strong style="color:#0f766e;">GIAI ĐOẠN 2: Oxi hóa SO<sub>2</sub> &rarr; SO<sub>3</sub></strong><br>
+        • 2SO<sub>2</sub> + O<sub>2</sub> &#8652; 2SO<sub>3</sub> (V<sub>2</sub>O<sub>5</sub>, 450–500&deg;C)<br>
+        • &Delta;<sub>r</sub>H&deg;<sub>298</sub> = &minus;197,8 kJ (phản ứng tỏa nhiệt)
+      </div>
+      <div class="stage-card s3">
+        <strong style="color:#92400e;">GIAI ĐOẠN 3: Hấp thụ SO<sub>3</sub> tạo Oleum</strong><br>
+        • H<sub>2</sub>SO<sub>4</sub> + nSO<sub>3</sub> &rarr; H<sub>2</sub>SO<sub>4</sub>&middot;nSO<sub>3</sub><br>
+        • H<sub>2</sub>SO<sub>4</sub>&middot;nSO<sub>3</sub> + nH<sub>2</sub>O &rarr; (n+1)H<sub>2</sub>SO<sub>4</sub>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 2: INTERACTIVE PRACTICE & 20 MCQs -->
+  <div id="tab-practice" class="tab-content">
+    <h2 class="sec-title teal">PHẦN B. BÀI TẬP RÈN LUYỆN PHẢN ỨNG &amp; TÍNH TOÁN</h2>
+
+    <div class="exercise-card">
+      <h3>Bài 1. Nhận diện sản phẩm &amp; Vai trò của H<sub>2</sub>SO<sub>4</sub> trong các thí nghiệm</h3>
+      <table>
+        <thead>
+          <tr>
+            <th class="teal-th">Thí nghiệm</th>
+            <th class="teal-th">Hiện tượng / Sản phẩm chính</th>
+            <th class="teal-th">Vai trò của H<sub>2</sub>SO<sub>4</sub></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1. Cu + H<sub>2</sub>SO<sub>4(loãng)</sub></strong></td>
+            <td>
+              <select id="b1_1a">
+                <option value="">-- Chọn sản phẩm --</option>
+                <option value="no">Không xảy ra phản ứng</option>
+                <option value="h2">Tạo CuSO₄ và khí H₂</option>
+                <option value="so2">Tạo CuSO₄ và khí SO₂</option>
+              </select><span id="fb_b1_1a"></span>
+            </td>
+            <td>
+              <select id="b1_1b">
+                <option value="">-- Chọn vai trò --</option>
+                <option value="none">Không tham gia phản ứng</option>
+                <option value="oxh">Chất oxi hóa</option>
+                <option value="acid">Môi trường acid</option>
+              </select><span id="fb_b1_1b"></span>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>2. Cu + H<sub>2</sub>SO<sub>4(đặc, nóng)</sub></strong></td>
+            <td>
+              <select id="b1_2a">
+                <option value="">-- Chọn sản phẩm --</option>
+                <option value="so2">Dung dịch xanh lam (CuSO₄), khí mùi hắc (SO₂)</option>
+                <option value="h2">Dung dịch xanh lam (CuSO₄), khí không mùi (H₂)</option>
+                <option value="no">Không phản ứng</option>
+              </select><span id="fb_b1_2a"></span>
+            </td>
+            <td>
+              <select id="b1_2b">
+                <option value="">-- Chọn vai trò --</option>
+                <option value="both">Vừa là chất oxi hóa, vừa là môi trường acid</option>
+                <option value="only_oxh">Chỉ là chất oxi hóa</option>
+                <option value="only_khu">Chất khử</option>
+              </select><span id="fb_b1_2b"></span>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>3. Fe + H<sub>2</sub>SO<sub>4(đặc, nguội)</sub></strong></td>
+            <td>
+              <select id="b1_3a">
+                <option value="">-- Chọn hiện tượng --</option>
+                <option value="pass">Fe bị thụ động hóa (không tan)</option>
+                <option value="fe3">Tạo muối Fe₂(SO₄)₃ và khí SO₂</option>
+                <option value="fe2">Tạo muối FeSO₄ và khí H₂</option>
+              </select><span id="fb_b1_3a"></span>
+            </td>
+            <td>
+              <select id="b1_3b">
+                <option value="">-- Chọn giải thích --</option>
+                <option value="film">Tạo màng oxide bền bảo vệ bề mặt Fe</option>
+                <option value="weak">H₂SO₄ đặc nguội có tính acid yếu</option>
+                <option value="none">Fe là kim loại kém hoạt động</option>
+              </select><span id="fb_b1_3b"></span>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>4. Fe + H<sub>2</sub>SO<sub>4(đặc, nóng, dư)</sub></strong></td>
+            <td>
+              <select id="b1_4a">
+                <option value="">-- Chọn sản phẩm --</option>
+                <option value="fe3_so2">Muối Fe₂(SO₄)₃, khí SO₂ và H₂O</option>
+                <option value="fe2_so2">Muối FeSO₄, khí SO₂ và H₂O</option>
+                <option value="fe2_h2">Muối FeSO₄ và khí H₂</option>
+              </select><span id="fb_b1_4a"></span>
+            </td>
+            <td>
+              <select id="b1_4b">
+                <option value="">-- Chọn hệ số cân bằng --</option>
+                <option value="2_6">Tỉ lệ mol Fe : H₂SO₄ = 2 : 6 (1 : 3)</option>
+                <option value="1_2">Tỉ lệ mol Fe : H₂SO₄ = 1 : 2</option>
+                <option value="1_1">Tỉ lệ mol Fe : H₂SO₄ = 1 : 1</option>
+              </select><span id="fb_b1_4b"></span>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>5. S + H<sub>2</sub>SO<sub>4(đặc, nóng)</sub></strong></td>
+            <td>
+              <select id="b1_5a">
+                <option value="">-- Chọn sản phẩm --</option>
+                <option value="so2">Khí SO₂ và H₂O</option>
+                <option value="h2s">Khí H₂S và O₂</option>
+                <option value="so3">Khí SO₃ và H₂</option>
+              </select><span id="fb_b1_5a"></span>
+            </td>
+            <td>
+              <select id="b1_5b">
+                <option value="">-- Chọn vai trò --</option>
+                <option value="oxh">Chất oxi hóa (S⁺⁶ &rarr; S⁺⁴)</option>
+                <option value="khu">Chất khử (S⁺⁶ &rarr; S⁺⁴)</option>
+                <option value="acid">Chỉ đóng vai trò môi trường</option>
+              </select><span id="fb_b1_5b"></span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="exercise-card">
+      <h3>Bài 2. Bài tập tính toán nhanh</h3>
+      <p>Hòa tan hoàn toàn <strong>12,0 gam</strong> hỗn hợp X gồm <strong>Cu và Fe</strong> bằng dung dịch H<sub>2</sub>SO<sub>4</sub> đặc, nóng, dư thu được <strong>4,958 lít khí SO<sub>2</sub></strong> (đkc: 25&deg;C, 1 bar; 1 mol khí chiếm 24,79 lít; sản phẩm khử duy nhất của S<sup>+6</sup>). Cho Cu = 64, Fe = 56.</p>
+      <div class="grid-3">
+        <div>
+          <label><strong>1. Số mol khí SO<sub>2</sub> thu được (mol):</strong></label>
+          <input type="number" id="calc_1" step="0.01" placeholder="VD: 0.2">
+          <span id="fb_calc_1"></span>
+        </div>
+        <div>
+          <label><strong>2. Khối lượng Fe trong hỗn hợp X (gam):</strong></label>
+          <input type="number" id="calc_2" step="0.1" placeholder="VD: 5.6">
+          <span id="fb_calc_2"></span>
+        </div>
+        <div>
+          <label><strong>3. Thể tích khí H<sub>2</sub> (đkc) nếu cho X tác dụng H<sub>2</sub>SO<sub>4</sub> loãng dư (lít):</strong></label>
+          <input type="number" id="calc_3" step="0.001" placeholder="VD: 2.479">
+          <span id="fb_calc_3"></span>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="sec-title rust">PHẦN C. 20 CÂU TRẮC NGHIỆM KHÁCH QUAN NHIỀU LỰA CHỌN (BAO PHỦ TOÀN BÀI)</h2>
+    <div id="mcqContainer" class="mcq-grid"></div>
+
+    <div class="btn-bar">
+      <button class="btn btn-submit" onclick="gradeWorksheet()">✅ Nộp Bài &amp; Chấm Điểm</button>
+      <button class="btn btn-reset" onclick="resetWorksheet()">🔄 Làm Lại</button>
+      <button class="btn btn-print" onclick="window.print()">🖨️ In Phiếu / Xuất PDF</button>
+    </div>
+
+    <div id="resultBox" class="result-box"></div>
+  </div>
+</div>
+
+<script>
+const mcqList = [
+  {
+    q: "Câu 1. Tính chất vật lí nào sau đây <strong>không đúng</strong> khi nói về sulfuric acid (H<sub>2</sub>SO<sub>4</sub>) đặc?",
+    opts: ["A. Chất lỏng sánh như dầu, không màu.", "B. Nặng gần gấp đôi nước (D &approx; 1,84 g/cm&sup3;).", "C. Dễ bay hơi ở điều kiện thường, có mùi xốc.", "D. Tan vô hạn trong nước và tỏa rất nhiều nhiệt."],
+    ans: "C", exp: "H₂SO₄ là acid không bay hơi ở điều kiện thường."
+  },
+  {
+    q: "Câu 2. Cách pha loãng dung dịch H<sub>2</sub>SO<sub>4</sub> đặc nào sau đây đảm bảo an toàn trong phòng thí nghiệm?",
+    opts: ["A. Rót nhanh nước vào acid đặc và khuấy đều.", "B. Rót từ từ acid đặc vào nước và khuấy nhẹ bằng đũa thủy tinh.", "C. Rót từ từ nước vào acid đặc và đun nhẹ.", "D. Đổ đồng thời nước và acid đặc vào cốc thủy tinh."],
+    ans: "B", exp: "Acid đặc nặng hơn nước, khi rót từ từ vào nước sẽ chìm xuống và tỏa nhiệt đều, tránh sôi bắn."
+  },
+  {
+    q: "Câu 3. Trong phân tử H<sub>2</sub>SO<sub>4</sub>, nguyên tử sulfur (S) có số oxi hóa là:",
+    opts: ["A. +2.", "B. +4.", "C. +6.", "D. &minus;2."],
+    ans: "C", exp: "2.(+1) + x + 4.(-2) = 0 → x = +6."
+  },
+  {
+    q: "Câu 4. Dung dịch H<sub>2</sub>SO<sub>4</sub> loãng tác dụng được với tất cả các chất trong dãy nào sau đây?",
+    opts: ["A. Fe, CuO, BaCl<sub>2</sub>, NaOH.", "B. Cu, Fe<sub>2</sub>O<sub>3</sub>, Na<sub>2</sub>CO<sub>3</sub>, KOH.", "C. Ag, Mg(OH)<sub>2</sub>, CaCO<sub>3</sub>, Zn.", "D. Fe, NaCl, Cu(OH)<sub>2</sub>, Al<sub>2</sub>O<sub>3</sub>."],
+    ans: "A", exp: "Loại B vì có Cu; loại C vì có Ag; loại D vì có NaCl."
+  },
+  {
+    q: "Câu 5. Kim loại nào sau đây <strong>không</strong> tác dụng với dung dịch H<sub>2</sub>SO<sub>4</sub> loãng nhưng tác dụng được với dung dịch H<sub>2</sub>SO<sub>4</sub> đặc, nóng?",
+    opts: ["A. Fe.", "B. Mg.", "C. Cu.", "D. Zn."],
+    ans: "C", exp: "Cu đứng sau H trong dãy hoạt động hóa học nên chỉ phản ứng với H₂SO₄ đặc, nóng."
+  },
+  {
+    q: "Câu 6. Dãy kim loại nào sau đây đều bị <strong>thụ động hóa</strong> trong dung dịch H<sub>2</sub>SO<sub>4</sub> đặc, nguội?",
+    opts: ["A. Al, Fe, Cr.", "B. Cu, Ag, Au.", "C. Zn, Mg, Al.", "D. Fe, Cu, Cr."],
+    ans: "A", exp: "Al, Fe, Cr tạo lớp màng oxide bền bảo vệ bề mặt trong H₂SO₄ đặc, nguội."
+  },
+  {
+    q: "Câu 7. Cho Fe tác dụng lần lượt với: (1) dung dịch H<sub>2</sub>SO<sub>4</sub> loãng; (2) dung dịch H<sub>2</sub>SO<sub>4</sub> đặc, nóng dư. Sản phẩm muối iron thu được lần lượt là:",
+    opts: ["A. FeSO<sub>4</sub> và FeSO<sub>4</sub>.", "B. Fe<sub>2</sub>(SO<sub>4</sub>)<sub>3</sub> và FeSO<sub>4</sub>.", "C. FeSO<sub>4</sub> và Fe<sub>2</sub>(SO<sub>4</sub>)<sub>3</sub>.", "D. Fe<sub>2</sub>(SO<sub>4</sub>)<sub>3</sub> và Fe<sub>2</sub>(SO<sub>4</sub>)<sub>3</sub>."],
+    ans: "C", exp: "H₂SO₄ loãng oxi hóa Fe lên +2; H₂SO₄ đặc, nóng dư oxi hóa Fe lên +3."
+  },
+  {
+    q: "Câu 8. Khi cho H<sub>2</sub>SO<sub>4</sub> đặc tác dụng với đường saccarozơ (C<sub>12</sub>H<sub>22</sub>O<sub>11</sub>), đường bị hóa đen. Hiện tượng này chứng tỏ tính chất gì của H<sub>2</sub>SO<sub>4</sub> đặc?",
+    opts: ["A. Tính acid mạnh.", "B. Tính háo nước.", "C. Tính khử mạnh.", "D. Tính dễ bay hơi."],
+    ans: "B", exp: "H₂SO₄ đặc chiếm nước của saccarozơ để lại than (C) màu đen."
+  },
+  {
+    q: "Câu 9. Trong phản ứng: C + 2H<sub>2</sub>SO<sub>4(đặc)</sub> &rarr; CO<sub>2</sub>&uarr; + 2SO<sub>2</sub>&uarr; + 2H<sub>2</sub>O, sulfuric acid đặc đóng vai trò là:",
+    opts: ["A. chất khử.", "B. chất oxi hóa.", "C. chất xúc tác.", "D. môi trường acid."],
+    ans: "B", exp: "S⁺⁶ nhận 2e giảm xuống S⁺⁴ trong SO₂ nên H₂SO₄ đặc là chất oxi hóa."
+  },
+  {
+    q: "Câu 10. Chất khí nào sau đây <strong>không thể</strong> làm khô bằng H<sub>2</sub>SO<sub>4</sub> đặc do có phản ứng hóa học xảy ra?",
+    opts: ["A. CO<sub>2</sub>.", "B. O<sub>2</sub>.", "C. NH<sub>3</sub>.", "D. Cl<sub>2</sub>."],
+    ans: "C", exp: "NH₃ có tính base nên phản ứng với H₂SO₄ tạo muối (NH₄)₂SO₄."
+  },
+  {
+    q: "Câu 11. Thuốc thử đặc trưng dùng để nhận biết ion sulfate (SO<sub>4</sub><sup>2&minus;</sup>) trong dung dịch là dung dịch chứa ion:",
+    opts: ["A. Ag<sup>+</sup>.", "B. Ba<sup>2+</sup>.", "C. Na<sup>+</sup>.", "D. Cu<sup>2+</sup>."],
+    ans: "B", exp: "Ba²⁺ + SO₄²⁻ → BaSO₄↓ (kết tủa trắng bền với acid)."
+  },
+  {
+    q: "Câu 12. Để phân biệt hai dung dịch không màu là HCl và H<sub>2</sub>SO<sub>4</sub> loãng, có thể dùng thuốc thử nào sau đây?",
+    opts: ["A. Quỳ tím.", "B. Dung dịch NaOH.", "C. Dung dịch BaCl<sub>2</sub>.", "D. Kim loại Zn."],
+    ans: "C", exp: "BaCl₂ tạo kết tủa trắng BaSO₄ với H₂SO₄, còn HCl không có hiện tượng."
+  },
+  {
+    q: "Câu 13. Công thức hóa học của oleum được tạo thành khi hấp thụ SO<sub>3</sub> bằng H<sub>2</sub>SO<sub>4</sub> đặc là:",
+    opts: ["A. H<sub>2</sub>SO<sub>3</sub>&middot;nSO<sub>2</sub>.", "B. H<sub>2</sub>SO<sub>4</sub>&middot;nSO<sub>3</sub>.", "C. H<sub>2</sub>S<sub>2</sub>O<sub>7</sub>&middot;nH<sub>2</sub>O.", "D. H<sub>2</sub>SO<sub>4</sub>&middot;nSO<sub>2</sub>."],
+    ans: "B", exp: "Oleum có công thức tổng quát là H₂SO₄·nSO₃."
+  },
+  {
+    q: "Câu 14. Trong phương pháp tiếp xúc sản xuất H<sub>2</sub>SO<sub>4</sub>, chất xúc tác dùng cho phản ứng oxi hóa SO<sub>2</sub> thành SO<sub>3</sub> là:",
+    opts: ["A. MnO<sub>2</sub>.", "B. V<sub>2</sub>O<sub>5</sub>.", "C. Fe<sub>2</sub>O<sub>3</sub>.", "D. Ni."],
+    ans: "B", exp: "Vanadium(V) oxide (V₂O₅) ở 450–500°C làm xúc tác cho phản ứng."
+  },
+  {
+    q: "Câu 15. Muối sulfate nào sau đây ít tan trong nước và được dùng làm chất cản quang trong chụp X-quang đường tiêu hóa?",
+    opts: ["A. CuSO<sub>4</sub>.", "B. MgSO<sub>4</sub>.", "C. BaSO<sub>4</sub>.", "D. (NH<sub>4</sub>)<sub>2</sub>SO<sub>4</sub>."],
+    ans: "C", exp: "BaSO₄ không tan trong nước và dịch vị dạ dày nên an toàn dùng làm chất cản quang."
+  },
+  {
+    q: "Câu 16. Thạch cao nung (CaSO<sub>4</sub>&middot;0,5H<sub>2</sub>O) được ứng dụng rộng rãi trong y tế và xây dựng để:",
+    opts: ["A. sản xuất phân đạm.", "B. bó bột chỉnh hình, đúc tượng.", "C. khử chua đất trồng.", "D. làm chất tẩy trắng giấy."],
+    ans: "B", exp: "Thạch cao nung kết hợp với nước tạo khối rắn chắc dùng bó bột, đúc tượng."
+  },
+  {
+    q: "Câu 17. Tổng hệ số cân bằng (nguyên, tối giản) của các chất trong phương trình: FeO + H<sub>2</sub>SO<sub>4(đặc, nóng)</sub> &rarr; Fe<sub>2</sub>(SO<sub>4</sub>)<sub>3</sub> + SO<sub>2</sub> + H<sub>2</sub>O là:",
+    opts: ["A. 10.", "B. 12.", "C. 14.", "D. 16."],
+    ans: "B", exp: "2FeO + 4H₂SO₄ → Fe₂(SO₄)₃ + SO₂ + 4H₂O → Tổng hệ số = 2 + 4 + 1 + 1 + 4 = 12."
+  },
+  {
+    q: "Câu 18. Cho 0,1 mol Cu tác dụng hết với dung dịch H<sub>2</sub>SO<sub>4</sub> đặc, nóng dư. Thể tích khí SO<sub>2</sub> (đkc: 24,79 L/mol) thu được là:",
+    opts: ["A. 2,479 lít.", "B. 4,958 lít.", "C. 1,2395 lít.", "D. 3,7185 lít."],
+    ans: "A", exp: "n(SO₂) = n(Cu) = 0,1 mol → V = 0,1 × 24,79 = 2,479 lít."
+  },
+  {
+    q: "Câu 19. Hòa tan hoàn toàn 5,6 gam Fe bằng dung dịch H<sub>2</sub>SO<sub>4</sub> loãng dư thu được bao nhiêu gam muối khan?",
+    opts: ["A. 15,2 gam.", "B. 20,0 gam.", "C. 12,7 gam.", "D. 16,25 gam."],
+    ans: "A", exp: "n(Fe) = 0,1 mol → n(FeSO₄) = 0,1 mol → m = 0,1 × 152 = 15,2 gam."
+  },
+  {
+    q: "Câu 20. Một loại oleum có công thức H<sub>2</sub>SO<sub>4</sub>&middot;3SO<sub>3</sub>. Phần trăm khối lượng của nguyên tố sulfur trong oleum này là:",
+    opts: ["A. 37,87%.", "B. 32,65%.", "C. 40,00%.", "D. 35,96%."],
+    ans: "A", exp: "M(H₂SO₄·3SO₃) = 98 + 3×80 = 338; có 4 nguyên tử S → %S = (4×32 / 338)×100% = 37,87%."
+  }
+];
+
+function renderMCQs() {
+  const container = document.getElementById('mcqContainer');
+  container.innerHTML = mcqList.map((item, idx) => {
+    const qName = `mcq_${idx}`;
+    const optsHtml = item.opts.map((opt, oIdx) => {
+      const letter = ['A', 'B', 'C', 'D'][oIdx];
+      return `<label><input type="radio" name="${qName}" value="${letter}"> ${opt}</label>`;
+    }).join('');
+    return `<div class="mcq-item">
+      <div><strong>${item.q}</strong></div>
+      <div class="mcq-options">${optsHtml}</div>
+      <span id="fb_${qName}"></span>
+    </div>`;
+  }).join('');
+}
+
+renderMCQs();
+
+function openTab(tabId, btn) {
+  document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+  document.getElementById(tabId).classList.add('active');
+  btn.classList.add('active');
+}
+
+function setFb(id, ok, msg) {
+  const el = document.getElementById(id);
+  el.className = ok ? 'correct-ans' : 'wrong-ans';
+  el.innerHTML = ok ? '✔ Chính xác!' : ('✘ Chưa đúng. ' + msg);
+}
+
+function gradeWorksheet() {
+  let score = 0;
+  const total = 33;
+
+  const checksSelect = [
+    ['b1_1a', 'no', 'Cu đứng sau H nên không phản ứng với H₂SO₄ loãng.'],
+    ['b1_1b', 'none', 'Không xảy ra phản ứng.'],
+    ['b1_2a', 'so2', 'Cu + 2H₂SO₄(đặc) → CuSO₄ + SO₂↑ + 2H₂O.'],
+    ['b1_2b', 'both', '1 mol tạo muối (môi trường) và 1 mol bị khử thành SO₂ (oxi hóa).'],
+    ['b1_3a', 'pass', 'Fe, Al, Cr bị thụ động hóa trong H₂SO₄ đặc, nguội.'],
+    ['b1_3b', 'film', 'Tạo lớp màng oxide mỏng, bền bảo vệ bề mặt kim loại.'],
+    ['b1_4a', 'fe3_so2', '2Fe + 6H₂SO₄(đặc, nóng) → Fe₂(SO₄)₃ + 3SO₂↑ + 6H₂O.'],
+    ['b1_4b', '2_6', 'Tỉ lệ 2Fe : 6H₂SO₄.'],
+    ['b1_5a', 'so2', 'S + 2H₂SO₄(đặc, nóng) → 3SO₂↑ + 2H₂O.'],
+    ['b1_5b', 'oxh', 'H₂SO₄ đặc oxi hóa S⁰ lên S⁺⁴.']
+  ];
+
+  checksSelect.forEach(([id, ans, msg]) => {
+    const val = document.getElementById(id).value;
+    const ok = (val === ans);
+    if (ok) score++;
+    setFb('fb_' + id, ok, msg);
+  });
+
+  const c1 = parseFloat(document.getElementById('calc_1').value);
+  const ok1 = !isNaN(c1) && Math.abs(c1 - 0.2) <= 0.005;
+  if (ok1) score++;
+  setFb('fb_calc_1', ok1, 'n(SO₂) = 4,958 / 24,79 = 0,2 mol.');
+
+  const c2 = parseFloat(document.getElementById('calc_2').value);
+  const ok2 = !isNaN(c2) && Math.abs(c2 - 5.6) <= 0.1;
+  if (ok2) score++;
+  setFb('fb_calc_2', ok2, 'Giải hệ: n(Cu) = 0,1 mol; n(Fe) = 0,1 mol → m(Fe) = 5,6 gam.');
+
+  const c3 = parseFloat(document.getElementById('calc_3').value);
+  const ok3 = !isNaN(c3) && Math.abs(c3 - 2.479) <= 0.02;
+  if (ok3) score++;
+  setFb('fb_calc_3', ok3, 'Chỉ có Fe phản ứng với H₂SO₄ loãng: n(H₂) = n(Fe) = 0,1 mol → V = 2,479 lít.');
+
+  mcqList.forEach((item, idx) => {
+    const qName = `mcq_${idx}`;
+    const sel = document.querySelector(`input[name="${qName}"]:checked`);
+    const ok = sel && sel.value === item.ans;
+    if (ok) score++;
+    setFb('fb_' + qName, ok, `Đáp án ${item.ans}. ${item.exp}`);
+  });
+
+  const final10 = ((score / total) * 10).toFixed(1);
+  const box = document.getElementById('resultBox');
+  box.style.display = 'block';
+  box.innerHTML = `<h3 style="margin:0 0 6px; color:#065f46;">🎉 KẾT QUẢ BÀI LÀM: ${score}/${total} ý đúng — Điểm số: ${final10} / 10 điểm</h3>
+  <p style="margin:0;">Xem chi tiết lời giải thích từng câu ở phía trên để nắm vững toàn bộ kiến thức bài Sulfuric acid (H<sub>2</sub>SO<sub>4</sub>) nhé!</p>`;
+  box.scrollIntoView({ behavior: 'smooth' });
+}
+
+function resetWorksheet() {
+  document.querySelectorAll('select').forEach(s => s.value = '');
+  document.querySelectorAll('input[type="number"]').forEach(i => i.value = '');
+  document.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
+  document.querySelectorAll('[id^="fb_"]').forEach(span => { span.innerHTML = ''; span.className = ''; });
+  document.getElementById('resultBox').style.display = 'none';
+}
+</script>
+</body>
+</html>
